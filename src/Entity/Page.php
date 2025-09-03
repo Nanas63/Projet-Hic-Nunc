@@ -3,6 +3,8 @@
 namespace App\Entity;
 
 use App\Repository\PageRepository;
+use Doctrine\Common\Collections\ArrayCollection;
+use Doctrine\Common\Collections\Collection;
 use Doctrine\DBAL\Types\Types;
 use Doctrine\ORM\Mapping as ORM;
 
@@ -22,6 +24,17 @@ class Page
 
     #[ORM\Column(length: 255)]
     private ?string $slug = null;
+
+    /**
+     * @var Collection<int, user>
+     */
+    #[ORM\OneToMany(targetEntity: user::class, mappedBy: 'page')]
+    private Collection $relation;
+
+    public function __construct()
+    {
+        $this->relation = new ArrayCollection();
+    }
 
     public function getId(): ?int
     {
@@ -60,6 +73,36 @@ class Page
     public function setSlug(string $slug): static
     {
         $this->slug = $slug;
+
+        return $this;
+    }
+
+    /**
+     * @return Collection<int, user>
+     */
+    public function getRelation(): Collection
+    {
+        return $this->relation;
+    }
+
+    public function addRelation(user $relation): static
+    {
+        if (!$this->relation->contains($relation)) {
+            $this->relation->add($relation);
+            $relation->setPage($this);
+        }
+
+        return $this;
+    }
+
+    public function removeRelation(user $relation): static
+    {
+        if ($this->relation->removeElement($relation)) {
+            // set the owning side to null (unless already changed)
+            if ($relation->getPage() === $this) {
+                $relation->setPage(null);
+            }
+        }
 
         return $this;
     }

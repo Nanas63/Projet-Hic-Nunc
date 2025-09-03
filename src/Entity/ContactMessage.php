@@ -29,6 +29,9 @@ class ContactMessage
     #[ORM\Column]
     private ?\DateTimeImmutable $createdAt = null;
 
+    #[ORM\OneToOne(inversedBy: 'contactMessage', cascade: ['persist', 'remove'])]
+    private ?user $relation = null;
+
     public function getId(): ?int
     {
         return $this->id;
@@ -90,6 +93,18 @@ class ContactMessage
     public function setCreatedAt(\DateTimeImmutable $createdAt): static
     {
         $this->createdAt = $createdAt;
+
+        return $this;
+    }
+
+    public function getRelation(): ?user
+    {
+        return $this->relation;
+    }
+
+    public function setRelation(?user $relation): static
+    {
+        $this->relation = $relation;
 
         return $this;
     }

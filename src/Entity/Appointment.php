@@ -3,6 +3,8 @@
 namespace App\Entity;
 
 use App\Repository\AppointmentRepository;
+use Doctrine\Common\Collections\ArrayCollection;
+use Doctrine\Common\Collections\Collection;
 use Doctrine\DBAL\Types\Types;
 use Doctrine\ORM\Mapping as ORM;
 
@@ -31,6 +33,24 @@ class Appointment
 
     #[ORM\Column(length: 255)]
     private ?string $status = null;
+
+    /**
+     * @var Collection<int, user>
+     */
+    #[ORM\OneToMany(targetEntity: user::class, mappedBy: 'appointment')]
+    private Collection $relation;
+
+    /**
+     * @var Collection<int, Patient>
+     */
+    #[ORM\OneToMany(targetEntity: Patient::class, mappedBy: 'relation')]
+    private Collection $patients;
+
+    public function __construct()
+    {
+        $this->relation = new ArrayCollection();
+        $this->patients = new ArrayCollection();
+    }
 
     public function getId(): ?int
     {
@@ -105,6 +125,66 @@ class Appointment
     public function setStatus(string $status): static
     {
         $this->status = $status;
+
+        return $this;
+    }
+
+    /**
+     * @return Collection<int, user>
+     */
+    public function getRelation(): Collection
+    {
+        return $this->relation;
+    }
+
+    public function addRelation(user $relation): static
+    {
+        if (!$this->relation->contains($relation)) {
+            $this->relation->add($relation);
+            $relation->setAppointment($this);
+        }
+
+        return $this;
+    }
+
+    public function removeRelation(user $relation): static
+    {
+        if ($this->relation->removeElement($relation)) {
+            // set the owning side to null (unless already changed)
+            if ($relation->getAppointment() === $this) {
+                $relation->setAppointment(null);
+            }
+        }
+
+        return $this;
+    }
+
+    /**
+     * @return Collection<int, Patient>
+     */
+    public function getPatients(): Collection
+    {
+        return $this->patients;
+    }
+
+    public function addPatient(Patient $patient): static
+    {
+        if (!$this->patients->contains($patient)) {
+            $this->patients->add($patient);
+            $patient->setRelation($this);
+        }
+
+        return $this;
+    }
+
+    public function removePatient(Patient $patient): static
+    {
+        if ($this->patients->removeElement($patient)) {
+            // set the owning side to null (unless already changed)
+            if ($patient->getRelation() === $this) {
+                $patient->setRelation(null);
+            }
+        }
 
         return $this;
     }

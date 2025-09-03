@@ -26,6 +26,10 @@ class Testimonial
     #[ORM\Column]
     private ?bool $visible = null;
 
+    #[ORM\OneToOne(inversedBy: 'testimonial', cascade: ['persist', 'remove'])]
+    #[ORM\JoinColumn(nullable: false)]
+    private ?Patient $relation = null;
+
     public function getId(): ?int
     {
         return $this->id;
@@ -75,6 +79,18 @@ class Testimonial
     public function setVisible(bool $visible): static
     {
         $this->visible = $visible;
+
+        return $this;
+    }
+
+    public function getRelation(): ?Patient
+    {
+        return $this->relation;
+    }
+
+    public function setRelation(Patient $relation): static
+    {
+        $this->relation = $relation;
 
         return $this;
     }
