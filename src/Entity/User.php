@@ -3,14 +3,14 @@
 namespace App\Entity;
 
 use App\Repository\UserRepository;
+use Doctrine\Common\Collections\ArrayCollection;
+use Doctrine\Common\Collections\Collection;
 use Doctrine\ORM\Mapping as ORM;
-use Symfony\Bridge\Doctrine\Validator\Constraints\UniqueEntity;
 use Symfony\Component\Security\Core\User\PasswordAuthenticatedUserInterface;
 use Symfony\Component\Security\Core\User\UserInterface;
 
 #[ORM\Entity(repositoryClass: UserRepository::class)]
 #[ORM\UniqueConstraint(name: 'UNIQ_IDENTIFIER_EMAIL', fields: ['email'])]
-#[UniqueEntity(fields: ['email'], message: 'There is already an account with this email')]
 class User implements UserInterface, PasswordAuthenticatedUserInterface
 {
     #[ORM\Id]
@@ -33,20 +33,30 @@ class User implements UserInterface, PasswordAuthenticatedUserInterface
     #[ORM\Column]
     private ?string $password = null;
 
-    #[ORM\ManyToOne(inversedBy: 'relation')]
-    private ?Appointment $appointment = null;
+    /**
+     * @var Collection<int, Contact>
+     */
+    #[ORM\OneToMany(targetEntity: Contact::class, mappedBy: 'user')]
+    private Collection $contacts;
 
-    #[ORM\Column(length: 255)]
-    private ?string $firstName = null;
+    /**
+     * @var Collection<int, Reservation>
+     */
+    #[ORM\OneToMany(targetEntity: Reservation::class, mappedBy: 'user')]
+    private Collection $reservations;
 
-    #[ORM\Column(length: 255)]
-    private ?string $lastName = null;
+    /**
+     * @var Collection<int, Testimonial>
+     */
+    #[ORM\OneToMany(targetEntity: Testimonial::class, mappedBy: 'user')]
+    private Collection $testimonials;
 
-    #[ORM\ManyToOne(inversedBy: 'relation')]
-    private ?Page $page = null;
-
-    #[ORM\OneToOne(mappedBy: 'relation', cascade: ['persist', 'remove'])]
-    private ?ContactMessage $contactMessage = null;
+    public function __construct()
+    {
+        $this->contacts = new ArrayCollection();
+        $this->reservations = new ArrayCollection();
+        $this->testimonials = new ArrayCollection();
+    }
 
     public function getId(): ?int
     {
@@ -129,72 +139,92 @@ class User implements UserInterface, PasswordAuthenticatedUserInterface
         // @deprecated, to be removed when upgrading to Symfony 8
     }
 
-    public function getAppointment(): ?Appointment
+    /**
+     * @return Collection<int, Contact>
+     */
+    public function getContacts(): Collection
     {
-        return $this->appointment;
+        return $this->contacts;
     }
 
-    public function setAppointment(?Appointment $appointment): static
+    public function addContact(Contact $contact): static
     {
-        $this->appointment = $appointment;
-
-        return $this;
-    }
-
-    public function getFirstName(): ?string
-    {
-        return $this->firstName;
-    }
-
-    public function setFirstName(string $firstName): static
-    {
-        $this->firstName = $firstName;
-
-        return $this;
-    }
-
-    public function getLastName(): ?string
-    {
-        return $this->lastName;
-    }
-
-    public function setLastName(string $lastName): static
-    {
-        $this->lastName = $lastName;
-
-        return $this;
-    }
-
-    public function getPage(): ?Page
-    {
-        return $this->page;
-    }
-
-    public function setPage(?Page $page): static
-    {
-        $this->page = $page;
-
-        return $this;
-    }
-
-    public function getContactMessage(): ?ContactMessage
-    {
-        return $this->contactMessage;
-    }
-
-    public function setContactMessage(?ContactMessage $contactMessage): static
-    {
-        // unset the owning side of the relation if necessary
-        if ($contactMessage === null && $this->contactMessage !== null) {
-            $this->contactMessage->setRelation(null);
+        if (!$this->contacts->contains($contact)) {
+            $this->contacts->add($contact);
+            $contact->setUser($this);
         }
 
-        // set the owning side of the relation if necessary
-        if ($contactMessage !== null && $contactMessage->getRelation() !== $this) {
-            $contactMessage->setRelation($this);
+        return $this;
+    }
+
+    public function removeContact(Contact $contact): static
+    {
+        if ($this->contacts->removeElement($contact)) {
+            // set the owning side to null (unless already changed)
+            if ($contact->getUser() === $this) {
+                $contact->setUser(null);
+            }
         }
 
-        $this->contactMessage = $contactMessage;
+        return $this;
+    }
+
+    /**
+     * @return Collection<int, Reservation>
+     */
+    public function getReservations(): Collection
+    {
+        return $this->reservations;
+    }
+
+    public function addReservation(Reservation $reservation): static
+    {
+        if (!$this->reservations->contains($reservation)) {
+            $this->reservations->add($reservation);
+            $reservation->setUser($this);
+        }
+
+        return $this;
+    }
+
+    public function removeReservation(Reservation $reservation): static
+    {
+        if ($this->reservations->removeElement($reservation)) {
+            // set the owning side to null (unless already changed)
+            if ($reservation->getUser() === $this) {
+                $reservation->setUser(null);
+            }
+        }
+
+        return $this;
+    }
+
+    /**
+     * @return Collection<int, Testimonial>
+     */
+    public function getTestimonials(): Collection
+    {
+        return $this->testimonials;
+    }
+
+    public function addTestimonial(Testimonial $testimonial): static
+    {
+        if (!$this->testimonials->contains($testimonial)) {
+            $this->testimonials->add($testimonial);
+            $testimonial->setUser($this);
+        }
+
+        return $this;
+    }
+
+    public function removeTestimonial(Testimonial $testimonial): static
+    {
+        if ($this->testimonials->removeElement($testimonial)) {
+            // set the owning side to null (unless already changed)
+            if ($testimonial->getUser() === $this) {
+                $testimonial->setUser(null);
+            }
+        }
 
         return $this;
     }

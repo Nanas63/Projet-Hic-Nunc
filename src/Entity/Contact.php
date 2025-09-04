@@ -2,12 +2,12 @@
 
 namespace App\Entity;
 
-use App\Repository\ContactMessageRepository;
+use App\Repository\ContactRepository;
 use Doctrine\DBAL\Types\Types;
 use Doctrine\ORM\Mapping as ORM;
 
-#[ORM\Entity(repositoryClass: ContactMessageRepository::class)]
-class ContactMessage
+#[ORM\Entity(repositoryClass: ContactRepository::class)]
+class Contact
 {
     #[ORM\Id]
     #[ORM\GeneratedValue]
@@ -29,8 +29,9 @@ class ContactMessage
     #[ORM\Column]
     private ?\DateTimeImmutable $createdAt = null;
 
-    #[ORM\OneToOne(inversedBy: 'contactMessage', cascade: ['persist', 'remove'])]
-    private ?user $relation = null;
+    #[ORM\ManyToOne(inversedBy: 'contacts')]
+    #[ORM\JoinColumn(nullable: false)]
+    private ?User $user = null;
 
     public function getId(): ?int
     {
@@ -97,14 +98,14 @@ class ContactMessage
         return $this;
     }
 
-    public function getRelation(): ?user
+    public function getUser(): ?User
     {
-        return $this->relation;
+        return $this->user;
     }
 
-    public function setRelation(?user $relation): static
+    public function setUser(?User $user): static
     {
-        $this->relation = $relation;
+        $this->user = $user;
 
         return $this;
     }

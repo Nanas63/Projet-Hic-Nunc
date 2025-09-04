@@ -14,9 +14,6 @@ class Testimonial
     #[ORM\Column]
     private ?int $id = null;
 
-    #[ORM\Column(length: 255)]
-    private ?string $author = null;
-
     #[ORM\Column(type: Types::TEXT)]
     private ?string $content = null;
 
@@ -26,25 +23,13 @@ class Testimonial
     #[ORM\Column]
     private ?bool $visible = null;
 
-    #[ORM\OneToOne(inversedBy: 'testimonial', cascade: ['persist', 'remove'])]
+    #[ORM\ManyToOne(inversedBy: 'testimonials')]
     #[ORM\JoinColumn(nullable: false)]
-    private ?Patient $relation = null;
+    private ?User $user = null;
 
     public function getId(): ?int
     {
         return $this->id;
-    }
-
-    public function getAuthor(): ?string
-    {
-        return $this->author;
-    }
-
-    public function setAuthor(string $author): static
-    {
-        $this->author = $author;
-
-        return $this;
     }
 
     public function getContent(): ?string
@@ -83,14 +68,14 @@ class Testimonial
         return $this;
     }
 
-    public function getRelation(): ?Patient
+    public function getUser(): ?User
     {
-        return $this->relation;
+        return $this->user;
     }
 
-    public function setRelation(Patient $relation): static
+    public function setUser(?User $user): static
     {
-        $this->relation = $relation;
+        $this->user = $user;
 
         return $this;
     }

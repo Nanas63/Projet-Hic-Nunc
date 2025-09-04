@@ -1,3 +1,11 @@
 body {
-    background-color: skyblue;
+    background-color: #789395;
 }
+
+.nav-link{
+    font-family: 'lora';
+    color: black;
+    font-weight: 700;
+    font-size: 20px;
+}
+
