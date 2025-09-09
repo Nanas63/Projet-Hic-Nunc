@@ -5,15 +5,86 @@
 {% block body %}
 
 <div class="banner" style="background-image: url('{{ asset('images/image-home.jpg') }}');">
-    <h1>Hic&Nunc</h1>
-    <h6>Ici et maintenant</h6>
-    <h2>Pour un nouveau départ<h2>
+   
+    <section class="bloc-titres">
+        <h1 class="titre titre-principal">Hic & Nunc</h1>
+        <h2 class="titre titre-label">Ici et maintenant</h2>
+        <h6 class="titre titre-slogan">Pour un nouveau départ</h6>
+    </section>
 </div>
-{# <div class="container-fluid3">
-    
-</div> #}
+<section class="bandeau">
+</section>
+
+<section class="bg-light-green py-0">
+  <div class="container-description">
+    <div class="w-100 mx-auto row text-center">
+      
+      <!-- Colonne gauche : Mon objectif -->
+      <div class="col-md-5 mb-md-0 mb-5">
+        <h2 class="fw-bold1">Mon objectif</h2>
+        <p>Vous permettre d’atteindre un état de bien-être dans votre vie.</p>
+      </div>
+
+      <!-- Colonne centrale : image de l’oiseau -->
+      <div class="col-md-2 text-center d-none d-md-block">
+        <img src="{{asset('images/poignee_beige.svg')}}" alt="poignee_main" class="img-fluid" style="max-height: 100px;">
+      </div>
+
+      <!-- Colonne droite : Vos besoins en 2 sous-colonnes -->
+      <div class="col-md-5">
+        <h2 class="fw-bold2">Vos besoins</h2>
+        <div class="row">
+          <!-- Sous-colonne gauche -->
+          <div class="col-6 d-flex justify-content-center">
+            <ul class="list-unstyled">
+              <li>Coaching</li>
+              <li>Gestion du stress</li>
+              <li>Gestion émotionnelle</li>
+              <li>Orientation de vie</li>
+            </ul>
+          </div>
+          <!-- Sous-colonne droite -->
+          <div class="col-6 d-flex justify-content-center">
+            <ul class="list-unstyled">
+              <li>Développement personnel</li>
+              <li>Séparation</li>
+              <li>Deuil</li>
+              <li>Préparation aux examens</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<section class="bandeau">
+</section>
 
 
+<section class="bg-light-green py-0">
+<div class="container-practices">
+    <div class="w-100 mx-auto row text-center">
+        <div class="col-md-12 mb-md-0">
+            <h2 class="fw-bold3">Mes Pratiques</h2>
+        </div>
+    </div>  
+</div> 
+</section> 
+
+<section class="bandeau">
+</section>
+
+<section class="bg-light-green py-0">
+<div class="container-testimonials">
+    <div class="w-100 mx-auto row text-center">
+        <div class="col-md-12 mb-md-0">
+            <h2 class="fw-bold3">Ils témoignent...</h2>
+        </div>
+    </div>  
+</div> 
+</section> 
 
 
 {% endblock %}
