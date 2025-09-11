@@ -1,0 +1,38 @@
+{% extends 'base.html.twig' %}
+
+{% block body %}
+
+<h3>Prendre RDV</h3>
+
+    {# {% if app.user %}
+        <p>Bonjour {{app.user.email}}</p>
+    {% else %}
+        <p>Bonjour Invité</p>
+    {% endif %} #}
+
+<div class="container mt-5 mb-5">
+        <div class="row justify-content-center">
+            <div class="col-12 col-sm-10 col-md-8 col-lg-6 col-xl-5">
+
+   	{{form_start(form)}}
+
+
+	{{form_row(form.title)}}
+    {{form_row(form.createdAt)}}
+    {{form_row(form.doDay)}}
+    {{form_row(form.duration)}}
+    {{form_row(form.user)}}
+    {{form_row(form.status)}}
+    {{form_row(form.lastname)}}
+    {{form_row(form.firstname)}}
+    
+    {{form_row(form.phone)}}
+
+	<button type="submit" class="btn btn-same-bg me-md-2 px-4">Soumettre</button>
+
+	{{form_end(form)}}
+
+
+            </div>
+        </div>
+{% endblock %}

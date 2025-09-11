@@ -51,6 +51,26 @@ class User implements UserInterface, PasswordAuthenticatedUserInterface
     #[ORM\OneToMany(targetEntity: Testimonial::class, mappedBy: 'user')]
     private Collection $testimonials;
 
+    #[ORM\Column]
+    private ?\DateTimeImmutable $createdAt = null;
+
+    
+
+
+    //Rajout à la main pour champ username formulaire de RDV//
+
+
+    /* #[ORM\Column(type: 'string', length: 180, unique: true)] */
+
+    
+    #[ORM\Column(length: 255)]
+    private ?string $lastName = null;
+
+    #[ORM\Column(length: 255)]
+    private ?string $firstName = null;
+
+      
+
     public function __construct()
     {
         $this->contacts = new ArrayCollection();
@@ -228,4 +248,42 @@ class User implements UserInterface, PasswordAuthenticatedUserInterface
 
         return $this;
     }
+
+    public function getCreatedAt(): ?\DateTimeImmutable
+    {
+        return $this->createdAt;
+    }
+
+    public function setCreatedAt(\DateTimeImmutable $createdAt): static
+    {
+        $this->createdAt = $createdAt;
+
+        return $this;
+    }
+
+    public function getLastName(): ?string
+    {
+        return $this->lastName;
+    }
+
+    public function setLastName(string $lastName): static
+    {
+        $this->lastName = $lastName;
+
+        return $this;
+    }
+
+    public function getFirstName(): ?string
+    {
+        return $this->firstName;
+    }
+
+    public function setFirstName(string $firstName): static
+    {
+        $this->firstName = $firstName;
+
+        return $this;
+    }
+
+    
 }

@@ -1,0 +1,34 @@
+{% extends 'base.html.twig' %}
+
+{% block body %}
+    <h3>Créer un nouveau rendez-vous</h3>
+
+    {{ form_start(form) }}
+
+    {% if app.user %}
+        <p>Bonjour {{app.user.email}}</p>
+    {% else %}
+        <p>Bonjour Invité</p>
+    {% endif %}
+
+
+    {{ form_start(form) }}
+        {# {{ form_widget(form) }} #}
+ 
+
+
+
+	{{form_row(form.title)}}
+    {{form_row(form.createdAt)}}
+    {{form_row(form.doDay)}}
+    {{form_row(form.duration)}}
+    {{form_row(form.phone)}}
+    {{form_row(form.practices)}}
+    {{form_row(form.user)}}
+    {{form_row(form.historical)}}
+    {{form_row(form.status)}}
+
+		        
+    <button class="btn btn-same-bg me-md-2 px-4">Créer</button>
+    {{ form_end(form) }}
+{% endblock %}

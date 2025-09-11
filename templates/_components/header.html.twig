@@ -2,13 +2,17 @@
   <div class="container-fluid">
     
       <img src="{{asset('images/logo.png')}}" alt="Logo" width="150" height="70" class="d-inline-block align-text-top">
+
+      
       <div class="d-grid gap-2 d-md-flex justify-content-md-end">
-        <button class="btn btn-same-bg me-md-2 px-4" type="button">S'inscrire</button>
-        <button class="btn btn-same-bg px-4" type="button">Se connecter</button>
+        <a href="{{path('app_register')}}" class="btn btn-same-bg me-md-2 px-4">S'inscrire</a>
+        <a href="{{path('app_login')}}" class="btn btn-same-bg px-4">Se connecter</a>
+          
       </div>
+      
   </div>
 
-
+  
 <nav class="navbar navbar-expand-lg navbar-light same-bg">
   <div class="container">
     {# Bouton burger pour mobile #}
@@ -34,10 +38,24 @@
             <a class="nav-link" href="#">Contact</a>
           </li>
           <li>
-            <button class="btn btn-same-bg2 me-md-2 px-4" type="button">Prendre RDV</button>
+            <a href="{{path('reservation_new')}}" button class="btn btn-same-bg2 me-md-2 px-4" type="button">Prendre RDV</a>
           </li>
         </ul>
       </div>
     </div>
+   
   </div>
+  
 </nav>
+
+{% if app.user %}
+			<p>Bienvenue
+			
+				{{app.user.email}}</p>
+
+				
+			
+			<a href="{{path('app_logout')}}" class="btn btn-same-bg me-md-2 px-4" type="submit">Se déconnecter</a>
+
+		
+		{% endif %}
