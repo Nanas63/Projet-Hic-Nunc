@@ -4,6 +4,7 @@
 
 {% block body %}
 
+
 <div class="banner" style="background-image: url('{{ asset('images/image-home.jpg') }}');">
    
     <section class="bloc-titres">
@@ -71,7 +72,33 @@
         </div>
     </div>  
 </div> 
-</section> 
+</section>
+
+<div class="container-card ">
+  <div class="row justify-content-center mb-5">
+    {% for practice in practices %}
+    <div class="col-10 col-sm-6 col-md-4 col-lg-3 d-flex justify-content-center mb-4">
+      
+        <div class="card h-100 shadow-sm"style="width: 100%; max-width: 18rem;">
+          
+          {% if practice.image %}
+            <img src="{{ asset('images/' ~ practice.image) }}" class="card-img-top" alt="{{ practice.title }}">
+          {% endif %}
+          <div class="card-body">
+            <h5 class="card-title">{{ practice.title }}</h5>
+            {# <p class="card-text">{{ practice.description|slice(0, 150) ~ '...' }}</p> #}
+          </div>
+          <div class="card-footer text-center">
+            <a href="{{ path('practice_show', {id: practice.id}) }}" class="btn btn-same-bg px-4">En savoir plus</a>
+          </div>
+        </div>
+      </div>
+    {% else %}
+      <div class="col-12 text-center">
+        <p>Aucune pratique thérapeutique enregistrée pour le moment.</p>
+      </div>
+    {% endfor %}
+</div>
 
 <section class="bandeau">
 </section>

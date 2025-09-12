@@ -52,6 +52,8 @@ class ReservationType extends AbstractType
             ->add('createdAt', null, [
                 'label' => 'Date du jour',
                 'widget' => 'single_text',
+                
+                'required' => true,
             ])
             ->add('doDay', DateTimeType::class, [
                 'label' => 'Date du RDV',
@@ -59,7 +61,6 @@ class ReservationType extends AbstractType
             
             ])
             
-            ->add('status')
            /*  ->add('historical')
            
             ->add('practices', EntityType::class, [

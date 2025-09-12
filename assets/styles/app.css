@@ -24,14 +24,27 @@
     padding-bottom: 100px;
 }
 
-.container-practices, .container-testimonials, .container-accompaniement, .container-association{
+.container-practices, .container-testimonials, .container-accompaniement, .container-association, .container{
     background-color: #b4cfb0;
-    padding-top: 100px;
-    padding-bottom: 100px;
+    padding-top: 50px;
+    padding-bottom: 50px;
     font-family: lora;
     font-weight: bolder;
     font-size: 20px;
+    display: flex;
+    flex-direction:column;
 }
+
+.container-contact{
+    background-color: #b4cfb0;
+}
+.container-card{
+
+    background-color: #b4cfb0;
+    text-align: center;
+   
+}
+
 
 .admin{
     color: black;
@@ -105,6 +118,7 @@
     font-family: lora;
 }
 
+
 .bloc-titres {
   display: flex;
   flex-direction: column;
@@ -145,28 +159,7 @@
   
 }
 
-/* Responsive */
-@media (max-width: 768px) {
-  .bloc-titres {
-    padding-left: 15px;
-    padding-top: 20px;
-  }
 
-  .titre-principal {
-    font-size: 2.2rem;
-  }
-
-  .titre-label {
-    font-size: 1rem;
-  }
-
-  .titre-slogan {
-    font-size: 1.2rem;
-    align-self: center;
-    text-align: center;
-  }
-  
-}
 
 .description{
     margin: 0;
@@ -198,6 +191,7 @@
 
 .fw-bold3{
     background-color: #E5E3C9;
+    font-family: lora;
     font-size: 1.5rem;
     padding-top: 20px;
     padding-bottom: 20px;
@@ -218,6 +212,7 @@ p{
     font-size: 1rem;
     text-align: center;
     color: black;
+    text-align: justify;
     }
 .parcours{
     text-align: start;
@@ -247,15 +242,19 @@ h1{
     font-weight: normal;
     font-size: 60px;
     color:black ;
+    
     }
 
+    
 h3{
-    font-family: playfair display;
-    font-weight: normal;
-    font-size: 2rem;
+    font-family: lora;
+    font-weight: bold;
+    font-size: 2.5rem;
     margin-top: 50px;
+    margin-bottom: 50px;
     text-align: center;
 }
+
 
 
 .img{
@@ -291,4 +290,53 @@ h3{
     margin-bottom: 50px;
 }
 
+.card{
+    background-color: #E5E3C9;
+    padding-bottom: 30px;
+    border-radius: 10px;
+    
+}
+.card img {
+  height: 150px;
+  object-fit: cover;
+}
 
+input, select, textarea, label{
+    max-width: 500px;
+  display: block;
+  margin: 0 auto;
+  max-width: 400px; /* facultatif pour limiter la largeur */
+    text-align:inherit;
+}
+
+
+
+/* Responsive */
+@media (max-width: 768px) {
+  .bloc-titres {
+    padding-left: 15px;
+    padding-top: 20px;
+  }
+
+  .titre-principal {
+    font-size: 2.2rem;
+  }
+
+  .titre-label {
+    font-size: 1rem;
+  }
+
+  .titre-slogan {
+    font-size: 1.2rem;
+    align-self: center;
+    text-align: center;
+  }
+  
+  .nav-link{
+
+    font-size: 1rem;
+    padding: 0px;
+    text-align: center;
+  }
+  
+}

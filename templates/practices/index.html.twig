@@ -3,18 +3,51 @@
 {% block title %}Hello PracticesController!{% endblock %}
 
 {% block body %}
-<style>
-    .example-wrapper { margin: 1em auto; max-width: 800px; width: 95%; font: 18px/1.5 sans-serif; }
-    .example-wrapper code { background: #F5F5F5; padding: 2px 6px; }
-</style>
 
-<div class="example-wrapper">
-    <h1>Hello {{ controller_name }}! ✅</h1>
 
-    This friendly message is coming from:
-    <ul>
-        <li>Your controller at <code>C:/Users/ANAIS/Documents/SIMPLON/Symfony/projet_hic_nunc/hic_nunc/src/Controller/PracticesController.php</code></li>
-        <li>Your template at <code>C:/Users/ANAIS/Documents/SIMPLON/Symfony/projet_hic_nunc/hic_nunc/templates/practices/index.html.twig</code></li>
-    </ul>
+<section class="container-fluid2 py-5 text-center gap-">
+<div class="container py-5">
+  <h1 class="text-center mb-4">Mes pratiques thérapeutiques</h1>
+  <div class="img text-center d-none d-md-block">
+        <img src="{{asset('images/zen_wordpress.jpeg')}}" alt="photo_land_art_feuille" class="img-fluid2" style="width: 200px height: 300px;">
 </div>
+</section>
+<section class="bandeau">
+</section>
+
+<section class="bg-light-green py-0">
+<div class="container-accompaniement">
+    <div class="w-100 mx-auto row text-center">
+        <div class="col-md-12 mb-md-0">
+            <h2 class="fw-bold3">Méthodes</h2>
+        </div>
+
+
+
+
+  <div class="container-card row row-cols-1 row-cols-md-3 g-4">
+    {% for practice in practices %}
+      <div class="col">
+        <div class="card h-100 shadow-sm">
+          {% if practice.image %}
+            <img src="{{ asset('images/' ~ practice.image) }}" class="card-img-top" alt="{{ practice.title }}">
+          {% endif %}
+          <div class="card-body">
+            <h5 class="card-title">{{ practice.title }}</h5>
+            {# <p class="card-text">{{ practice.description|slice(0, 150) ~ '...' }}</p> #}
+          </div>
+          <div class="card-footer text-center">
+            <a href="{{ path('practice_show', {id: practice.id}) }}" class="btn btn-same-bg px-4">En savoir plus</a>
+          </div>
+        </div>
+      </div>
+    {% else %}
+      <div class="col-12 text-center">
+        <p>Aucune pratique thérapeutique enregistrée pour le moment.</p>
+      </div>
+    {% endfor %}
+  </div>
+</div>
+
+
 {% endblock %}

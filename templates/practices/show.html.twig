@@ -1,0 +1,18 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}
+{% endblock %}
+
+{% block body %}
+<div class="container mb-4 py-5 text-center">
+  <h3>{{ practice.title }}</h3>
+
+  {% if practice.image %}
+    <img src="{{ asset('images/' ~ practice.image) }}" alt="{{ practice.title }}" class="img-fluid mb-4">
+  {% endif %}
+
+  <p>{{ practice.description }}</p>
+
+  <a href="{{ path('practices_index') }}" class="btn btn-same-bg mt-5 me-md-2 px-4">← Retour aux pratiques</a>
+</div>
+{% endblock %}

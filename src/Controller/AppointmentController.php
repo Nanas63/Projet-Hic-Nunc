@@ -35,6 +35,7 @@ final class AppointmentController extends AbstractController
         $form->handleRequest($request);
 
         if ($form->isSubmitted() && $form->isValid()) {
+            $rdv->setStatus(100);
             $em->persist($rdv);
             $em->flush();
             return $this->redirectToRoute('reservation_index');
