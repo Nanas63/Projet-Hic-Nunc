@@ -6,25 +6,29 @@
 
 
 <section class="container-fluid2 py-5 text-center gap-">
-<div class="container py-5">
-  <h1 class="text-center mb-4">Mes pratiques thérapeutiques</h1>
-  <div class="img text-center d-none d-md-block">
+  <div class="container py-5">
+    <h1 class="text-center mb-4">Mes pratiques thérapeutiques</h1>
+    <div class="img text-center d-none d-md-block">
         <img src="{{asset('images/zen_wordpress.jpeg')}}" alt="photo_land_art_feuille" class="img-fluid2" style="width: 200px height: 300px;">
-</div>
+    </div>
 </section>
+
 <section class="bandeau">
 </section>
 
 <section class="bg-light-green py-0">
-<div class="container-accompaniement">
+  <div class="container-accompaniement">
     <div class="w-100 mx-auto row text-center">
         <div class="col-md-12 mb-md-0">
             <h2 class="fw-bold3">Méthodes</h2>
         </div>
+    </div>
+  </div>
+</section>
 
 
 
-
+<section class="container-practices py-5">
   <div class="container-card row row-cols-1 row-cols-md-3 g-4">
     {% for practice in practices %}
       <div class="col">
@@ -47,7 +51,7 @@
       </div>
     {% endfor %}
   </div>
-</div>
+</section>
 
 
 {% endblock %}

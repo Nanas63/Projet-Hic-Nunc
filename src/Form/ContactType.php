@@ -22,15 +22,26 @@ class ContactType extends AbstractType
                 'label' => 'Nom',
                 'required' => true,
              ])
-             ->add('email')
-            ->add('objet', ChoiceType::class, [
+             ->add('email', TextType::class, [
+                'label' => 'email',
+                'required' => true,
+             ])
+            ->add('object', ChoiceType::class, [
                 'choices' => [
                     'Demande de rendez-vous' => 'rdv',
                     'Demande d\'informations' => 'infos',
                     'Autre' => 'autre',
                 ],
+                'required' => true,
             ])
-            /* ->add('content') */
+            ->add('content', TextareaType::class, [
+                'label' => 'Message',
+                'attr' => [
+                    'placeholder' => 'Votre message',
+                    'class' => 'form-control',
+                ],
+                'required' => true,
+            ]);
            /*  ->add('createdAt', null, [
                 'widget' => 'single_text',
             ]) */
@@ -39,7 +50,7 @@ class ContactType extends AbstractType
                 'choice_label' => 'id',
             ])
         ; */
-        ->add('message', TextareaType::class);
+                
     }
 
     public function configureOptions(OptionsResolver $resolver): void

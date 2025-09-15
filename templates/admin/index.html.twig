@@ -17,4 +17,17 @@
 				<h3>Administrateur</h3>
 			</div>
 			
+
+
+			<div class="dropdown">
+  <button class="btn btn-same-bg mt-4 dropdown-toggle" type="button" id="adminMenuButton" data-bs-toggle="dropdown" aria-expanded="false">
+    Menu
+  </button>
+  <ul class="dropdown-menu" aria-labelledby="adminMenuButton">
+    {# <li><a class="dropdown-item" href="{{ path('practices_index') }}">Gérer mes pratiques</a></li> #}
+    <li><a class="dropdown-item" href="{{ path('admin_appointment') }}">Gérer les RDV</a></li>
+    <li><a class="dropdown-item" href="{{ path('testimonial_index') }}">Gérer les témoignages</a></li>
+  </ul>
+</div>
+
 {% endblock %}

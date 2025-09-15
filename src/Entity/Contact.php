@@ -30,7 +30,10 @@ class Contact
     private ?\DateTimeImmutable $createdAt = null;
 
     #[ORM\ManyToOne(inversedBy: 'contacts')]
-    #[ORM\JoinColumn(nullable: false)]
+
+    /* #[ORM\JoinColumn(nullable: false)] */
+    #[ORM\JoinColumn(nullable: true)]
+
     private ?User $user = null;
 
     public function getId(): ?int

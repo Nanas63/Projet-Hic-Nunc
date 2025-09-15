@@ -111,7 +111,33 @@
         </div>
     </div>  
 </div> 
-</section> 
+</section>
+
+<div class="container-card2">
+  <div class="row justify-content-center mb-5">
+    {% for testimonial in testimonials %}
+    <div class="col-10 col-sm-6 col-md-4 col-lg-3 d-flex justify-content-center mb-4">
+      
+        <div class="card h-100 shadow-sm"style="width: 100%; max-width: 18rem;">
+          
+          
+          <div class="card-body d-flex flex-column">
+            <h5 class="card-title">{{ testimonial.firstname }}</h5>
+            <h6 class="mt-3"> {{ testimonial.createdat|date('d/m/Y') }}</h6>
+            <p class="card-content">{{ testimonial.content|slice(0, 200)}}{% if testimonial.content|length > 200 %}...{% endif %}</p>
+            
+          </div>
+          <div class="card-footer text-center">
+            <a href="{{ path('testimonial_index')}}" class="btn btn-same-bg px-4 mt-3">Lire plus</a>
+
+          </div>
+        </div>
+      </div>
+    
+    {% endfor %}
+  </div>
+</div>
+
 
 
 {% endblock %}

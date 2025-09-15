@@ -1,3 +1,7 @@
+body{
+    background-color: #b4cfb0;
+}
+
 .container-fluid{
     background-color: #E5E3C9;
     padding-left: 30px;
@@ -7,6 +11,8 @@
 .container-fluid2{
     background-color: #b4cfb0;
     display: flex;
+    margin-left: 50px;
+    margin-right: 50px;
     flex-direction: column;
     justify-content: center;
 }
@@ -28,6 +34,8 @@
     background-color: #b4cfb0;
     padding-top: 50px;
     padding-bottom: 50px;
+    margin-left: 50px;
+    margin-right: 50px;
     font-family: lora;
     font-weight: bolder;
     font-size: 20px;
@@ -301,12 +309,23 @@ h3{
   object-fit: cover;
 }
 
+.card-content{
+    padding-left: 10px;
+    padding-right: 10px;
+}
+
+
 input, select, textarea, label{
     max-width: 500px;
   display: block;
   margin: 0 auto;
   max-width: 400px; /* facultatif pour limiter la largeur */
     text-align:inherit;
+}
+
+.dropdown-menu{
+    background-color: #b4cfb0;
+    font-family: lora;
 }
 
 
