@@ -41,7 +41,9 @@ class ReservationType extends AbstractType
                 
             ->add('duration', TextType::class, [
                  'label' => 'Duree',
-                'attr' => ['placeholder' => '45 minutes'],
+                 'data' => '45 minutes',
+                 'disabled' => true,
+                 'attr' => ['readonly' => true,]
             ])
 
             
@@ -49,12 +51,11 @@ class ReservationType extends AbstractType
             ->add('phone', TextType::class, [
                 'label' => 'Téléphone',
             ])
-            ->add('createdAt', null, [
+            /* ->add('createdAt', DateTimeType::class, [
                 'label' => 'Date du jour',
                 'widget' => 'single_text',
-                
                 'required' => true,
-            ])
+            ]) */
             ->add('doDay', DateTimeType::class, [
                 'label' => 'Date du RDV',
                 'required' => true,

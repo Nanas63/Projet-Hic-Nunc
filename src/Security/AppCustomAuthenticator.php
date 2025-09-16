@@ -12,6 +12,7 @@ use Symfony\Component\Security\Http\Authenticator\Passport\Badge\CsrfTokenBadge;
 use Symfony\Component\Security\Http\Authenticator\Passport\Badge\RememberMeBadge;
 use Symfony\Component\Security\Http\Authenticator\Passport\Badge\UserBadge;
 use Symfony\Component\Security\Http\Authenticator\Passport\Credentials\PasswordCredentials;
+use Symfony\Component\Security\Core\User\UserInterface;
 use Symfony\Component\Security\Http\Authenticator\Passport\Passport;
 use Symfony\Component\Security\Http\SecurityRequestAttributes;
 use Symfony\Component\Security\Http\Util\TargetPathTrait;
@@ -47,6 +48,16 @@ class AppCustomAuthenticator extends AbstractLoginFormAuthenticator
         if ($targetPath = $this->getTargetPath($request->getSession(), $firewallName)) {
             return new RedirectResponse($targetPath);
         }
+
+        // Récupération de l'utilisateur connecté
+        $user = $token->getUser();
+
+        // Vérification du rôle
+        if ($user instanceof UserInterface && in_array('ROLE_ADMIN', $user->getRoles())) {
+        return new RedirectResponse($this->urlGenerator->generate('app_admin'));
+        }
+
+
 
         // For example:
         return new RedirectResponse($this->urlGenerator->generate('app_admin'));

@@ -14,11 +14,20 @@
         <div class="row justify-content-center">
             <div class="col-12 col-sm-10 col-md-8 col-lg-6 col-xl-5">
 
+    {% for message in app.flashes('success') %}
+    <div class="alert alert-success">
+        {{ message }}
+    </div>
+{% endfor %}
+
+
+
+
    	{{form_start(form)}}
 
 
 	{{form_row(form.title)}}
-    {{form_row(form.createdAt)}}
+    {# {{form_row(form.createdAt)}} #}
     {{form_row(form.doDay)}}
     {{form_row(form.duration)}}
     {# {{form_row(form.user)}} #}
@@ -36,4 +45,11 @@
             </div>
         </div>
 </div>
+
+{% for message in app.flashes('success') %}
+    <div class="alert alert-success">
+        {{ message }}
+    </div>
+{% endfor %}
+
 {% endblock %}

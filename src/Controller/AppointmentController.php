@@ -35,14 +35,20 @@ final class AppointmentController extends AbstractController
         $form->handleRequest($request);
 
         if ($form->isSubmitted() && $form->isValid()) {
+
+            $rdv->setCreatedAt(new \DateTimeImmutable('now'));
+
             $rdv->setStatus(100);
             $em->persist($rdv);
             $em->flush();
-            return $this->redirectToRoute('reservation_index');
+
+            $this->addFlash('success', 'Votre réservation a bien été enregistrée.');
+            return $this->redirectToRoute('reservation_new');
         }
 
         return $this->render('appointment/add_reservation.html.twig', [
             'form' => $form->createView(),
+            
         ]);
     }
 }

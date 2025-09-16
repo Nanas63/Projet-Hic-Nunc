@@ -54,6 +54,7 @@ class Reservation
     public function __construct()
     {
         $this->practices = new ArrayCollection();
+        $this->duration = '45 minutes';
     }
 
     public function getId(): ?int

@@ -1,0 +1,14 @@
+{% extends 'base.html.twig' %}
+{% block body %}
+<h1>Liste des témoignages</h1>
+<a href="{{ path('admin_testimonial_add') }}">Ajouter un témoignage</a>
+<ul>
+  {% for testimonial in testimonials %}
+    <li>
+      {{ testimonial.content }}
+      <a href="{{ path('admin_testimonial_edit', {id: testimonial.id}) }}">Modifier</a>
+      <a href="{{ path('admin_testimonial_delete', {id: testimonial.id}) }}">Supprimer</a>
+    </li>
+  {% endfor %}
+</ul>
+{% endblock %}

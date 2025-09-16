@@ -2,13 +2,16 @@
 
 namespace App\Form;
 
+use App\Entity\User;
 use App\Entity\Practice;
 use App\Entity\Reservation;
-use App\Entity\User;
-use Symfony\Bridge\Doctrine\Form\Type\EntityType;
 use Symfony\Component\Form\AbstractType;
+use Doctrine\DBAL\Types\DateTimeImmutableType;
 use Symfony\Component\Form\FormBuilderInterface;
+use Symfony\Bridge\Doctrine\Form\Type\EntityType;
 use Symfony\Component\OptionsResolver\OptionsResolver;
+use Symfony\Component\Form\Extension\Core\Type\DateTimeType;
+use Symfony\Component\Validator\Constraints\DateTime;
 
 class AdminReservationType extends AbstractType
 {
@@ -17,10 +20,9 @@ class AdminReservationType extends AbstractType
         $builder
             ->add('title')
             ->add('duration')
+           /*  ->add('createdAt', DateTimeType::class,) */
             ->add('phone')
-            ->add('createdAt', null, [
-                'widget' => 'single_text',
-            ])
+            
             ->add('doDay')
             ->add('status')
             ->add('historical')
@@ -30,7 +32,7 @@ class AdminReservationType extends AbstractType
             ])
             ->add('practices', EntityType::class, [
                 'class' => Practice::class,
-                'choice_label' => 'id',
+                'choice_label' => 'name',
                 'multiple' => true,
             ])
         ;

@@ -126,6 +126,20 @@ body{
     font-family: lora;
 }
 
+.btn-same-bg5{
+    color: black;
+    background-color:#b4cfb0;
+    border-radius: 20px 20px 20px 20px;
+    border: 1px solid beige; /* Bordure beige */
+    box-shadow: 2px 2px 6px rgba(0, 0, 0, 0.25); /* Ombre portée */
+    margin-bottom: 40px;
+    font-weight: bold;
+    font-family: lora;
+}
+
+.btn-same-bg5:hover{
+    background-color: #E5E3C9;
+}
 
 .bloc-titres {
   display: flex;
@@ -255,8 +269,8 @@ h1{
 
     
 h3{
-    font-family: lora;
-    font-weight: bold;
+    font-family: playfair display;
+    font-weight: normal;
     font-size: 2.5rem;
     margin-top: 50px;
     margin-bottom: 50px;
@@ -326,6 +340,11 @@ input, select, textarea, label{
 .dropdown-menu{
     background-color: #b4cfb0;
     font-family: lora;
+    
+}
+
+.dropdown-item:hover{
+    background-color: #E5E3C9;
 }
 
 
