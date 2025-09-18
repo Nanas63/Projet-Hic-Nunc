@@ -5,8 +5,21 @@
 {% block body %}
 <h3>Liste des RDV</h3>
 
-<a href="{{ path('admin_appointment') }}"</a>
-<a href="{{ path('admin_appointment_add') }}" class="btn btn-primary mb-3">Créer un RDV</a>
+
+
+<div class="col-6 w-100 d-flex justify-content-center mb-5">
+  <a href="{{ path('app_admin') }}" class="btn btn-same-bg2">
+    ← Retour au menu
+  </a>
+</div>
+
+<div class="position-sticky top-0 bg-white py-2 d-flex justify-content-center z-index-1">
+  <a href="{{ path('admin_appointment_add') }}" class="btn btn-same-bg5 mt-4">
+    <i class="bi bi-plus-circle me-1"></i> Créer un RDV
+    
+  </a>
+</div>
+
 
 <table class="table">
   <thead>
@@ -21,36 +34,57 @@
       <th>Status</th>
       <th>Historique</th>
       <th>Pratiques thérapeutiques</th>
-      <th>Actions<th>
+      <th>Actions</th>
     </tr>
   </thead>
   <tbody>
     {% for reservation in reservations %}
       <tr>
         <td>{{ reservation.id }}</td>
-        <td>{{ reservation.user}}</td>
-        <td>{{ reservation.title}}</td>
-        <td>{{ reservation.duration}}</td>
-        <td>{{ reservation.createdAt|date('d/m/Y H:i')}}</td>
-        <td>{{ reservation.phone}}</td>
-        <td>{{ reservation.doDay}}</td>
-        <td>{{ reservation.status }}</td>
-        <td>{{ reservation.historical}}</td>
-        <td>{{ reservation.practices}}</td>
+        <td>{{ reservation.user }}</td>
+        <td>{{ reservation.title }}</td>
+        <td>{{ reservation.duration }}</td>
+        <td>{{ reservation.createdAt|date('d/m/Y H:i') }}</td>
+        <td>{{ reservation.phone }}</td>
+        <td>{{ reservation.doDay|date('d/m/Y H:i') }}</td>
+        
+        {% set statusLabels = {
+        0: 'En attente',
+        1: 'Confirmé',
+        2: 'Annulé'
+    } %}
+
+        <td>{{ statusLabels[reservation.status] ?? 'Statut inconnu' }}</td>
+
+        {# <td>{{ reservation.status|join(', ') }}</td> #}
+        <td>
+    {% if reservation.historical is not empty %}
+        {{ reservation.historical|join(', ') }}
+    {% else %}
+        <em>Aucun historique</em>
+    {% endif %}
+        </td>
+
+        
+       <td>
+        {% if reservation.practices|length > 0 %}
+          {% for practice in reservation.practices %}
+            <span class="badge bg-info text-dark me-1">{{ practice.title }}</span>
+          {% endfor %}
+        {% else %}
+          <em>Aucune pratique</em>
+        {% endif %}
+      </td>
+
+        
         
         <td>
-          <a href="{{ path('admin_appointment_edit', {id: reservation.id}) }}" class="btn btn-same bg-5">Modifier</a>
-          <a href="{{ path('admin_appointment_delete', {id: reservation.id}) }}" class="btn btn-same bg-5">Supprimer</a>
+          <a href="{{ path('admin_appointment_edit', {id: reservation.id}) }}" class="btn btn-same-bg5">Modifier</a>
+          <a href="{{ path('admin_appointment_delete', {id: reservation.id}) }}" class="btn btn-same-bg5">Supprimer</a>
         </td>
       </tr>
     {% endfor %}
   </tbody>
 </table>
-
-
-
-
-
-
 
 {% endblock %}

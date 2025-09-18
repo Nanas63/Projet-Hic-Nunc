@@ -1,11 +1,15 @@
+
+
 body{
     background-color: #b4cfb0;
+    overflow-x: hidden;
 }
 
 .container-fluid{
     background-color: #E5E3C9;
     padding-left: 30px;
     padding-right: 30px;
+
 }
 
 .container-fluid2{
@@ -34,8 +38,6 @@ body{
     background-color: #b4cfb0;
     padding-top: 50px;
     padding-bottom: 50px;
-    margin-left: 50px;
-    margin-right: 50px;
     font-family: lora;
     font-weight: bolder;
     font-size: 20px;
@@ -50,6 +52,8 @@ body{
 
     background-color: #b4cfb0;
     text-align: center;
+    max-width: 100%;
+    
    
 }
 
@@ -91,7 +95,7 @@ body{
     border-radius: 50px 0px 50px 0px;
     border: 1px solid beige; /* Bordure beige */
     box-shadow: 2px 2px 6px rgba(0, 0, 0, 0.25); /* Ombre portée */
-    margin-bottom: 40px;
+    margin-bottom: 30px;
     font-weight: bold;
     font-family: lora;
 }
@@ -229,13 +233,14 @@ body{
 
 p{
     padding-top: 50px;
-    padding-left: 100px;
-    padding-right: 100px;
+    
     font-size: 1rem;
     text-align: center;
     color: black;
     text-align: justify;
     }
+
+
 .parcours{
     text-align: start;
     padding-left: 50px;
@@ -247,8 +252,6 @@ p{
 
 .list-unstyled, .precisions{
     padding-top: 20px;
-    padding-left: 50px;
-    padding-right: 50px;
     font-size: 1rem;
     text-align: left;
     color: black;
@@ -282,16 +285,21 @@ h3{
 .img{
     margin-top: 100px;
     margin-bottom: 100px;
+    max-width: 100%;
+    width: 100%;
+
     }
 .img-fluid2{
     border-radius: 100%;
     object-fit: cover;
+    max-width : 100%;
     
     }
 
 .img-fluid2:hover {
     transform: scale(1.05); /* agrandissement léger */
     box-shadow: 0 8px 20px rgba(0, 0, 0, 0.25); /* ombre plus marquée */
+    max-width:100%;
 }
 
 .lead, .precisions, .association{
@@ -319,9 +327,10 @@ h3{
     
 }
 .card img {
-  height: 150px;
+  height: 100%;
   object-fit: cover;
 }
+
 
 .card-content{
     padding-left: 10px;
@@ -347,6 +356,35 @@ input, select, textarea, label{
     background-color: #E5E3C9;
 }
 
+#testimonial_content{
+    max-width: 600px;
+    height: 200px;
+}
+
+#testimonial_firstName, #testimonial_createdAt, .form-label{
+    max-width: 600px;
+    height: 50px;
+}
+
+
+.container_edit_testimonial{
+    display: flex;
+    flex-direction: column;
+
+}
+.text-center{
+    max-width: 600px;
+}
+
+input[type="checkbox"].form-check-input:checked {
+  background-color:black;
+  border-color: #28a745;
+  
+}
+
+input[type="checkbox"].form-check-input {
+  accent-color: black;
+}
 
 
 /* Responsive */

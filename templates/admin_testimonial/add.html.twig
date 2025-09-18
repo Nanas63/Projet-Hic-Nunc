@@ -1,6 +1,6 @@
 {% extends 'base.html.twig' %}
 {% block body %}
-<h1>Liste des témoignages</h1>
+{# <h1>Liste des témoignages</h1>
 <a href="{{ path('admin_testimonial_add') }}">Ajouter un témoignage</a>
 <ul>
   {% for testimonial in testimonials %}
@@ -10,5 +10,27 @@
       <a href="{{ path('admin_testimonial_delete', {id: testimonial.id}) }}">Supprimer</a>
     </li>
   {% endfor %}
-</ul>
+</ul> #}
+
+<h3>Ajouter un témoignage</h3>
+
+    {% for message in app.flashes('success') %}
+        <div class="alert alert-success">
+            {{ message }}
+        </div>
+    {% endfor %}
+
+{{form_start(form)}}
+
+{{form_row(form.firstName)}}
+{{form_row(form.content)}}
+
+
+
+<div class="text-center mt-5 mb-5">
+
+<button class="btn btn-same-bg2" type="submit">Ajouter</button>
+
+</div>
+{{form_end(form)}}
 {% endblock %}

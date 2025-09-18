@@ -39,9 +39,16 @@ final class AdminTestimonialController extends AbstractController
 
 
     #[Route('/add', name: 'admin_testimonial_add')]
-    public function new(Request $request, EntityManagerInterface $em): Response
+    public function new(Request $request, EntityManagerInterface $em, \Symfony\Bundle\SecurityBundle\Security $security): Response
     {
         $testimonial = new Testimonial();
+
+        //Utilisateur connecté obligatoire pour laisser un témoignage//
+        $user = $security->getUser();
+        $testimonial->setUser($user);
+
+
+
         $form = $this->createForm(TestimonialType::class, $testimonial);
         $form->handleRequest($request);
 
@@ -60,6 +67,7 @@ final class AdminTestimonialController extends AbstractController
 
         return $this->render('admin_testimonial/add.html.twig', [
             'form' => $form->createView(),
+            'testimonial' => $testimonial,
         ]);
     }
 
@@ -77,12 +85,19 @@ final class AdminTestimonialController extends AbstractController
 
         if ($form->isSubmitted() && $form->isValid()) {
             $em->flush();
-            $this->addFlash('success', 'Témoignage modifié.');
+            $this->addFlash('success', 'Témoignage modifié avec succès');
+
+
+            // Redirection avec l'ID pour éviter l'erreur de paramètre manquant
+        /* return $this->redirectToRoute('admin_testimonial_edit', [
+            'id' => $testimonial->getId(),
+        ]); */
             return $this->redirectToRoute('admin_testimonial_index');
         }
 
         return $this->render('admin_testimonial/edit.html.twig', [
             'form' => $form->createView(),
+            'testimonial' => $testimonial,
         ]);
     }
 
