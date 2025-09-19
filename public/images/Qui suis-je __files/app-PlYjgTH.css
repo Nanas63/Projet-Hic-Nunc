@@ -44,7 +44,7 @@ body{
     padding-bottom: 100px;
 }
 
-.container-testimonials2{
+.container-practices, .container-testimonials{
     background-color: #b4cfb0;
     padding-top: 50px;
     padding-bottom: 50px;
@@ -55,7 +55,7 @@ body{
     flex-direction:column;
 }
 
-.container-accompaniement, .container-association, .container-practices, .container-testimonials{
+.container-accompaniement, .container-association, .container-nav{
     max-width: 700px;
     margin-inline: auto;
     margin-top: 50px;
@@ -64,16 +64,6 @@ body{
     justify-items: center;
     font-family: lora;
     
-}
-
-.container-nav{
-    max-width: 900px;
-    margin-inline: auto;
-    margin-top: 50px;
-    margin-bottom: 50px;
-    text-align: center;
-    justify-items: center;
-    font-family: lora;
 }
 
 .container-contact{
@@ -256,8 +246,10 @@ body{
 
 p{
     font-size: 1rem;
+    text-align: center;
     color: black;
-}
+    text-align: justify;
+    }
 
 
 .parcours, .association{
@@ -271,7 +263,6 @@ p{
     padding-top: 20px;
     font-size: 1rem;
     color: black;
-    text-align: left;
     }
 
 .bandeau{

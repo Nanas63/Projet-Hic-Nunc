@@ -6,53 +6,57 @@
 {% block body %}
 
 <section class="container-fluid2 py-5 gap-">
-    <h1 class="tittle text-center">Qui suis-je ?</h1>
-    <div class="img text-center d-none d-md-block">
-        <img src="{{asset('images/photo_christine.jpg')}}" alt="photo_christine_brunoir" class="img-fluid2" style="width: 200px height: 300px;">
+    <div class="row">
+        <h1 class="tittle text-center">Qui suis-je ?</h1>
+            <div class="img text-center d-none d-md-block">
+                <img src="{{asset('images/photo_christine.jpg')}}" alt="photo_christine_brunoir" class="img-fluid2" style="width: 300px ; height: 300px;">
+            </div>
     </div>
 
-
     <div class="row">
-        <div class="col-md-8 offset-md-2">
+        
             <p class="lead">
                 En tant que psychopraticienne, j'oeuvre à l'amélioration de la qualité de vie
                 par l'utilisation de techniques qui libèrent des points de tensions
                 et renforcent les forces naturelles de chacun.
             </p>
-        </div>
+        
     </div>
 </section>
+
+
 
 <section class="bandeau">
 </section>
 
 <section class="bg-light-green py-0">
 <div class="container-accompaniement">
-    <div class="w-100 mx-auto row text-center">
-        <div class="col-md-12 mb-md-0">
-            <h2 class="fw-bold3">Mon accompagnement</h2>
-        </div>
-        <div class="formations col-md-8 offset-md-2 pt-2 pb-5">
-            <p class="parcours">
-            Mon parcours a toujours été tourné vers l'humain.<br>
-            Cela fait 28 ans que j'officie dans l'aide à la personne.<br>
-            Les formations que j'utilise le plus fréquemment dans mon action de psychopraticienne sont:</p>
+    
+    <div class="accompaniement mb-5 md-0">
+        <h2 class="fw-bold3">Mon accompagnement</h2>
+    </div>
+        
+        
+            <div class="parcours">
+                <p>Mon parcours a toujours été tourné vers l'humain.
+                Cela fait 28 ans que j'officie dans l'aide à la personne.
+                Les formations que j'utilise le plus fréquemment dans mon action de psychopraticienne sont:</p>
 
-            <div>
-            <ul class="list-unstyled">
-              <li>DIU en TCC (Thérapies Cognitivo-Comportementales)</li>
-              <li>DU en addictologie</li>
-              <li>PBA (Psycho-Bio-Accupressure)</li>
-              <li>Access Bars</li>
-              <li>DEI (Détoxination Emotionnelle et Ïnformationnelle)</li>
-            </ul>
+            
+                <ul class="list-unstyled">
+                    <li>DIU en TCC (Thérapies Cognitivo-Comportementales)</li>
+                    <li>DU en addictologie</li>
+                    <li>PBA (Psycho-Bio-Accupressure)</li>
+                    <li>Access Bars</li>
+                    <li>DEI (Détoxination Emotionnelle et Informationnelle)</li>
+                </ul>
             </div>
             
-        </div>
-
+            
+  
 
         <div class="row">
-            <div class="col-md-8 offset-md-2">
+            {# <div class="col-md-8 offset-md-2"> #}
             
                 <p class="precisions">
                 Précisions importantes : En aucun cas je ne traite de maladies, ni ne donne de promesse de guérison. De même, je n'effectue aucun diagnostic.
@@ -62,11 +66,11 @@
                 Je vous invite à continuer à suivre les prescriptions de vos médecins et personnels de santé.
                 </p>
         
-            </div>
+            {# </div> #}
         </div>
                 
-    </div>  
-</div>
+    </div>
+</div> 
 </section>
 
 <section class="bandeau">
@@ -74,39 +78,19 @@
 
 <section class="bg-light-green py-0">
 <div class="container-association">
-    <div class="w-100 mx-auto row text-center">
-        <div class="col-md-12 mb-md-0">
-            <h2 class="fw-bold3">L'association</h2>
-        </div>
-        <div class="formations col-md-8 offset-md-2 pt-2 pb-5">
-            <p class="association">
-            L’association Hic et Nunc a pour but de proposer des outils de bien-être et de développement personnel à toute personne
-            désireuse d’avancer vers la rencontre d’elle et donc de l’autre.<br><br>
-
-            Hic et Nunc est une locution latine qui signifie, ici et maintenant.<br>
-
-            L’étymologie du mot maintenant est, à prendre comme dans la langue des oiseaux : main tenant, chacun peut tenir dès à présent
-            dans sa main son être et donc son devenir dans le lieu même où il se trouve.
-            </p>
-                               
-        </div>
-
-
-        <div class="row">
-            <div class="col-md-8 offset-md-2">
-            
-                <p class="precisions">
-                Précisions importantes : En aucun cas je ne traite de maladies, ni ne donne de promesse de guérison. De même, je n'effectue aucun diagnostic.
-                Mon action consiste à aider les prises de conscience et à effectuer des coachings personnels.
-                Les outils offerts par mes méthodes ne remplacent aucunement une prise en charge par un personnel de santé qualifié
-                (médecins généralistes, spécialistes…).
-                Je vous invite à continuer à suivre les prescriptions de vos médecins et personnels de santé.
-                </p>
+    
+    <div class="association mb-5-md-0">
+        <h2 class="fw-bold3">L'association</h2>
+    </div>
         
-            </div>
-        </div>
-                
-    </div>  
+    <div class="association">
+        <p>L’association Hic et Nunc a pour but de proposer des outils de bien-être et de développement personnel à toute personne
+           désireuse d’avancer vers la rencontre d’elle et donc de l’autre.<br>
+           Hic et Nunc est une locution latine qui signifie, ici et maintenant.<br>
+           L’étymologie du mot maintenant est, à prendre comme dans la langue des oiseaux : main tenant, chacun peut tenir dès à présent
+           dans sa main son être et donc son devenir dans le lieu même où il se trouve.
+        </p>
+    </div>
 </div>
 </section>
 

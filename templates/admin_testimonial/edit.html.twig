@@ -2,7 +2,11 @@
 {% block body %}
 <h3>Modifier le témoignage</h3>
 
-
+<div class="col-6 w-100 d-flex justify-content-center mb-5">
+  <a href="{{ path('app_admin') }}" class="btn btn-same-bg2">
+    ← Retour au menu
+  </a>
+</div>
 
 <div class="container_edit_testimonial">
     {% for message in app.flashes('success') %}

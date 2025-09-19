@@ -1,20 +1,26 @@
 
   <div class="container-fluid">
     
-      <img src="{{asset('images/logo.png')}}" alt="Logo" width="150" height="70" class="d-inline-block align-text-top">
+{#     <div class="d-grid gap-2 d-md-flex-wrap justify-content-md-start">
+      <img src="{{asset('images/logo.png')}}" alt="Logo" width="150" height="90" class="d-inline-block align-text-top">
+      <h4 > Chrisitne Brunoir <br> Psychopracticienne</h4>
+    </div>  #}
 
-      
+    <section class="d-flex justify-content-center py-4">
+      <img src="{{asset('images/logo.png')}}" alt="Logo" width="150" height="70" class="d-inline-block align-text-top">
+     
+    </section>
+
       <div class="d-grid gap-2 d-md-flex justify-content-md-end">
         <a href="{{path('app_register')}}" class="btn btn-same-bg me-md-2 px-4">S'inscrire</a>
         <a href="{{path('app_login')}}" class="btn btn-same-bg px-4">Se connecter</a>
-          
       </div>
       
   </div>
 
   
 <nav class="navbar navbar-expand-lg navbar-light same-bg">
-  <div class="container">
+  <div class="container-nav">
     {# Bouton burger pour mobile #}
     <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarResponsive"
       aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation">
