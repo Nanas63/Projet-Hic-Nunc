@@ -1,20 +1,84 @@
-<footer class="footer mt-auto py-0 same-bg2">
+{# <footer class="footer mt-auto py-0 same-bg2">
 
 
 <div class="container-footer">
 
-<section class="d-flex justify-content-center py-4">
-      <img src="{{asset('images/logo.png')}}" alt="Logo" width="150" height="70" class="d-inline-block align-text-top">
+      <div class="footer-section">
+            <h4>À propos</h4>
+      </div>
+     <div class="footer-section">
+      <h4>Contact</h4>
+      <p>Email : contact@exemple.com</p>
+      <p>Téléphone : 06 12 34 56 78</p>
 
-</section>
+      <div class="footer-bottom">
+            <img src="{{asset('images/logo.png')}}" alt="Logo" width="150" height="70" class="d-inline-block align-text-top">
+            <p>2025 Hic et Nunc. Tous droits réservés.</p>
+      </div>
+
+</div> #}
+         
+{# </footer #}
+
+<footer class="footer pt-3 pb-3">
+<div class="container-footer mb-0 mt-0">
+      <div class="row text-center">
+      <!-- À propos -->
+            
+
+      <!-- Contact -->
+            <div class="col-md-4 mb-0 mb-0">
+            <h6 class="tittle-footer">Contact</h6>
+        {# <p>Email : <a href="mailto:contact@exemple.com" class="text-dark">contact@exemple.com</a></p> #}
+            <p>Cabinet Nick&Nunc</p>
+            <p>Christine BRUNOIR</p>
+            <p>77 rue de l’hôtel de ville</p>
+            <p>63400 CHÂTEL-GUYON</p>
+            <p>06 12 34 56 78</p>
+            </div>
+
+            <div class="col-md-4 mb-0">
+            <h6 class="tittle-footer">Navigation</h6>
+
+            
+                  <a href="{{ path('app_home') }}" class="text-dark d-block mb-1" alt="link" >Accueil</a>
+           
+            
+                  <a href="{{ path('app_a_propos') }}" class="text-dark d-block mb-1" alt="link" >Qui suis-je ?</a>
+            
+            
+                  <a href="{{ path('practices_index') }}" class="text-dark d-block mb-1" alt="link" >Pratiques</a>
+           
+            
+                  <a href="{{ path('contact_index') }}" class="text-dark d-block mb-1" alt="link" >Contact</a>
+           
+            
+                  <a href="{{ path('reservation_index') }}" class="text-dark d-block mb-1" alt="link" >Prendre RDV</a>
+           
+            </div>
+
+      <!-- Réseaux sociaux -->
+            <div class="col-md-4 mb-4">
+            <h6 class="tittle-footer">Suivez-moi</h6>
+            <a href="#" class="text-dark d-block mb-1">Instagram</a>
+            <a href="#" class="text-dark d-block">Facebook</a>
+            </div>
+
+            <section class="d-flex justify-content-center mt-0">
+                  <img src="{{asset('images/logo.png')}}" alt="Logo" width="130" height="50" class="d-inline-block align-text-top">
+            </section>
+
+            
+            
+      </div>
+      <div class="mentions col text-center">
+            <p class="mb-0">&copy; 2025 Hic et Nunc. Tous droits réservés.</p>
+            <a href="/mentions-legales" class="text-dark">Mentions légales</a> |
+            <a href="/confidentialite" class="text-dark">Politique de confidentialité</a>
+            </div>
+</div>
 
 
-
-
-
-
-
-</footer
-
+</footer>
 
 

@@ -1,11 +1,15 @@
 *{
-    margin:0 ;
+    margin:0;
     padding: 0;
     box-sizing: border-box;
     line-height: inherit;
     color: inherit;
     font: inherit;
+    /* outline: 1px solid red; */
+  
 }
+
+
 
 body{
     background-color: #b4cfb0;
@@ -55,14 +59,15 @@ body{
     flex-direction:column;
 }
 
-.container-accompaniement, .container-association, .container-practices, .container-testimonials{
+.container-accompaniement, .container-association, .container-practices, .container-testimonials, .container-qui{
     max-width: 700px;
     margin-inline: auto;
     margin-top: 50px;
     margin-bottom: 50px;
-    text-align: center;
+    /* text-align: center; */
     justify-items: center;
     font-family: lora;
+    font-size: 0.8rem;
     
 }
 
@@ -87,6 +92,12 @@ body{
     
 }
 
+.container-footer{
+
+    display: flex;
+    flex-direction:column;
+    font-size: 0.7rem;
+}
 
 .admin{
     color: black;
@@ -254,29 +265,50 @@ body{
     color: black;
 }
 
-p{
+/* p{
     font-size: 1rem;
     color: black;
-}
+    text-align: justify;
+    margin: 0;
+} */
 
+p{
+    margin: 0px;
+    font-family: lora;
+}
+ 
+.psy{
+    color: #E5E3C9;
+  font-size: 1rem;
+  margin-top: 10px;
+  font-family: playfair display;
+}
 
 .parcours, .association{
     text-align: start;
     text-align:justify;
+    background-color: #E5E3C9;
+    border-radius: 5px 5px 5px 5px;
+    padding: 30px;
 }
 
-
-
-.list-unstyled, .precisions{
-    padding-top: 20px;
+.list-unstyled{
     font-size: 1rem;
     color: black;
     text-align: left;
+}
+
+.precisions{
+    padding-top: 20px;
+    font-size: 1rem;
+    color: black;
+    
     }
 
 .bandeau{
     background-color: #E5E3C9;
-    padding-top: 50px;
+    padding: 0;
+    margin: 0;
     }
     
 h1{
@@ -285,6 +317,7 @@ h1{
     font-size: 60px;
     color:black ;
     
+
     }
 h4{
     font-family: playfair display;
@@ -301,20 +334,24 @@ h3{
     margin-top: 50px;
     margin-bottom: 50px;
     text-align: center;
+    color: black;
 }
 
-
+h5{
+    font-family: lora;
+}
 
 .img{
     margin-top: 100px;
     margin-bottom: 100px;
-    max-width: 100%;
+    max-width: 600px;
     width: 100%;
 
     }
 .img-fluid2{
     border-radius: 100%;
     object-fit: cover;
+    width: 300px;
     max-width : 100%;
     
     }
@@ -355,6 +392,7 @@ h3{
 .card-content{
     padding-left: 10px;
     padding-right: 10px;
+    font-family: lora;
 }
 
 
@@ -404,8 +442,50 @@ input[type="checkbox"].form-check-input {
 }
 
 
+.footer{
+    background-color: #E5E3C9;
+    font-weight:bold;
+}
+
+h6{
+    color: chocolate;
+    font-size: 0.8rem;
+    font-family: lora;
+}
+a{
+    font-family: lora;
+}
+
+.mentions{
+    font-size: 0.6rem;
+}
+
+.bandeau-brand{
+    background-color:beige;
+    font-family: playfair display;
+    color: black;
+    justify-content: center;
+    padding: 30px;
+}
+
+.navbar-brand{
+    font-size: 1.6rem;
+}
+
+.navbar-text{
+    color: black;
+    font-size: 1.2rem;
+    font-weight: bold;
+    font-family: playfair display;
+    
+}
 /* Responsive */
 @media (max-width: 768px) {
+
+
+    .img-fluid2{
+        max-width: 200px;
+    }
   .bloc-titres {
     padding-left: 15px;
     padding-top: 20px;
@@ -431,6 +511,7 @@ input[type="checkbox"].form-check-input {
     padding: 0px;
     text-align: center;
   }
+  
   
   
 }
