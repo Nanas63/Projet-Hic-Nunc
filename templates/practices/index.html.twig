@@ -1,77 +1,80 @@
 {% extends 'base.html.twig' %}
 
-{% block title %}Hello PracticesController!{% endblock %}
+{% block title %}Hello PracticesController!
+{% endblock %}
 
 {% block body %}
 
-{# <section class="container-fluid2 py-5 gap-">
-    <div class="row">
-        <h3 class="tittle text-center">Qui suis-je ?</h3>
-            <div class="img text-center d-none d-md-block">
-                <img src="{{asset('images/photo_christine.jpg')}}" alt="photo_christine_brunoir" class="img-fluid2" style="width: 300px ; height: 300px;">
-            </div>
-    </div>
+	{# <section class="container-fluid2 py-5 gap-">
+	    <div class="row">
+	        <h3 class="tittle text-center">Qui suis-je ?</h3>
+	            <div class="img text-center d-none d-md-block">
+	                <img src="{{asset('images/photo_christine.jpg')}}" alt="photo_christine_brunoir" class="img-fluid2" style="width: 300px ; height: 300px;">
+	            </div>
+	    </div>
+	
+	    <div class="row">
+	        
+	            <p class="lead">
+	                En tant que psychopraticienne, j'oeuvre à l'amélioration de la qualité de vie
+	                par l'utilisation de techniques qui libèrent des points de tensions
+	                et renforcent les forces naturelles de chacun.
+	            </p>
+	        
+	    </div>
+	</section> #}
+	<section class="bandeau">
+	</section>
 
-    <div class="row">
-        
-            <p class="lead">
-                En tant que psychopraticienne, j'oeuvre à l'amélioration de la qualité de vie
-                par l'utilisation de techniques qui libèrent des points de tensions
-                et renforcent les forces naturelles de chacun.
-            </p>
-        
-    </div>
-</section> #}
+	<section class="bg-light-green py-0 mb-5">
+		<div class="container-practice text-center">
 
-
-<section class="bg-light-green py-0 mb-5">
-<div class="container-practice text-center">
-
-    <h3 class="tittle text-center">Mes pratiques thérapeutiques</h3>
-    <img src="{{asset('images/zen_wordpress.jpeg')}}" alt="photo_land_art_feuille" class="img-fluid2" style="width: 200px height: 300px;">
-</div>
-</section>
-
-<section class="bandeau">
-</section>
-
-<section class="bg-light-green py-0">
-  <div class="container-accompaniement">
-   <div class="accompaniement mb-5 md-0">
-        <h2 class="fw-bold3">Méthodes</h2>
-    </div>
-  </div>
-</section>
+			<h3 class="tittle text-center">Mes pratiques thérapeutiques</h3>
+			<img src="{{asset('images/zen_wordpress.jpeg')}}" alt="photo_land_art_feuille" class="img-fluid2" style="width: 200px height: 300px;">
+		</div>
 
 
+	</section>
 
-{# <section class="container-practices py-5">
-  <div class="container-card row row-cols-1 row-cols-md-3 g-4">
-    {% for practice in practices %}
-      <div class="col">
-        <div class="card h-100 shadow-sm">
-          {% if practice.image %}
-            <img src="{{ asset('images/' ~ practice.image) }}" class="card-img-top" alt="{{ practice.title }}">
-          {% endif %}
-          <div class="card-body">
-            <h5 class="card-title">{{ practice.title }}</h5>
-            
-          </div>
-          <div class="card-footer text-center">
-            <a href="{{ path('practice_show', {id: practice.id}) }}" class="btn btn-same-bg px-4">En savoir plus</a>
-          </div>
-        </div>
-      </div>
-    {% else %}
-      <div class="col-12 text-center">
-        <p>Aucune pratique thérapeutique enregistrée pour le moment.</p>
-      </div>
-    {% endfor %}
-  </div>
-</section> #}
+	<section class="bandeau">
+  </section>
+
+	<section class="bg-light-green py-0">
+		<div class="container-accompaniement">
+			<div class="accompaniement mb-5 md-0">
+				<h2 class="fw-bold3">Méthodes</h2>
+			</div>
+		</div>
+	</section>
 
 
-<div class="container container-card px-3 ">
+	{# <section class="container-practices py-5">
+	  <div class="container-card row row-cols-1 row-cols-md-3 g-4">
+	    {% for practice in practices %}
+	      <div class="col">
+	        <div class="card h-100 shadow-sm">
+	          {% if practice.image %}
+	            <img src="{{ asset('images/' ~ practice.image) }}" class="card-img-top" alt="{{ practice.title }}">
+	          {% endif %}
+	          <div class="card-body">
+	            <h5 class="card-title">{{ practice.title }}</h5>
+	            
+	          </div>
+	          <div class="card-footer text-center">
+	            <a href="{{ path('practice_show', {id: practice.id}) }}" class="btn btn-same-bg px-4">En savoir plus</a>
+	          </div>
+	        </div>
+	      </div>
+	    {% else %}
+	      <div class="col-12 text-center">
+	        <p>Aucune pratique thérapeutique enregistrée pour le moment.</p>
+	      </div>
+	    {% endfor %}
+	  </div>
+	</section> #}
+
+
+	<div class="container container-card px-3 ">
 		<div class="row justify-content-center mb-5">
 			{% for practice in practices %}
 				<div class="col-12 col-sm-6 col-md-4 col-lg-3 mb-4 d-flex justify-content-center">

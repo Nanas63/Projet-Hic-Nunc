@@ -1,68 +1,104 @@
 {% extends 'base.html.twig' %}
 
-{% block title %}Contact{% endblock %}
+{% block title %}Contact
+{% endblock %}
 
 {% block body %}
 
 
+	<section class="bandeau"></section>
 
-<section class="bandeau">
-</section>
-
-<div class="container-contact py-0">
-  <div class="row">
-    <!-- Coordonnées -->
-      <div class="col-md-5 mb-5 mt-5 text-center">
-        <div class="text-center mb-4">
-          <h2 class ="fw-bold3">Coordonnées</h2>
-        </div>
-        <div class="card h-60 shadow-sm" style="max-width: 400px; margin: auto;">
-          <p strong>Cabinet Nick&Nunc</strong><br>
-          Christine BRUNOIR<br><br>
-          77 rue de l’hôtel de ville<br>
-          63400 CHÂTEL-GUYON<br><br>
-          06.32.45.15.86
-          </p>
-        </div>
+	<div class="container-contact d-flex justify-content-center gap-5">
+		<!-- Coordonnées -->
+		<div class="col-md-5 mb-5 text-center">
+			<div class="text-center mb-4">
+				<h3 class="fw-bold3">Coordonnées</h3>
+			</div>
+			<div class="card h-60 shadow-sm text-start align-items-center pt-4" style="max-width: 400px; margin: auto;">
+				<p>Cabinet Nick&Nunc<br>
+        Christine BRUNOIR<br><br>
+			  77 rue de l’hôtel de ville<br>
+			  63400 CHÂTEL-GUYON<br><br>
+			  06.32.45.15.86</p>
+		    
       </div>
-  
+	  </div>
 
 
-    <div class="col-md-7 mb-5">
-        <div class="text-center mb-4 mt-5">
-      <h2 class ="fw-bold3">Prise de Contact</h2>
-        </div>
-
-  <div class="card h-60 shadow-sm py-4" style="max-width: 600px; margin: auto;">
-    <div class="mb-3 mt-3">
-      {% for message in app.flashes('success') %}
-      <div class="alert alert-success">{{ message }}</div>
-      {% endfor %}
-
-    
-      <div class="card-body">
-        {{ form_start(form) }}
-       
-        {{ form_row(form.lastname) }}
-        {{ form_row(form.email) }}
-        {{ form_row(form.object) }}
-        {{ form_row(form.content) }}
-        
 
 
-        <div class="offset-sm-2 col-sm-8 text-center mt-5">
-            <button type="submit" class="btn btn-same-bg me-md-2 px-4">Envoyer</button>
-        </div>
-        
+    <div class="col-md-5 mb-5">
+	  <div class="text-center mb-4 mt-5">
+		  <h3 class="fw-bold3">Prise de Contact</h3>
+	  </div>
 
-        {{ form_end(form) }}
+	  <div class="card h-60 shadow-sm py-4" style="max-width: 600px; margin: auto;">
+		  <div class="mb-3 mt-3">
+			  {% for message in app.flashes('success') %}
+				  <div class="alert alert-success">{{ message }}</div>
+			  {% endfor %}
+
+
+			<div class="card-body">
+				{{ form_start(form) }}
+
+				{{ form_row(form.lastname) }}
+				{{ form_row(form.email) }}
+				{{ form_row(form.object) }}
+				{{ form_row(form.content) }}
+
+
+				<div class="offset-sm-2 col-sm-8 text-center mt-5">
+					<button type="submit" class="btn btn-same-bg me-md-2 px-4">Envoyer</button>
+				</div>
+
       </div>
-    
-  </div>
-  </div>
+				{{ form_end(form) }}
+			</div>
+		</div>
+
+	</div>
 </div>
-{% endblock %}
 
 
 
 
+
+
+
+  </div>
+
+
+{#   <div class="col-md-7 mb-5">
+	  <div class="text-center mb-4 mt-5">
+		  <h3 class="fw-bold3">Prise de Contact</h3>
+	  </div>
+
+	  <div class="card h-60 shadow-sm py-4" style="max-width: 600px; margin: auto;">
+		  <div class="mb-3 mt-3">
+			  {% for message in app.flashes('success') %}
+				  <div class="alert alert-success">{{ message }}</div>
+			  {% endfor %}
+
+
+			<div class="card-body">
+				{{ form_start(form) }}
+
+				{{ form_row(form.lastname) }}
+				{{ form_row(form.email) }}
+				{{ form_row(form.object) }}
+				{{ form_row(form.content) }}
+
+
+				<div class="offset-sm-2 col-sm-8 text-center mt-5">
+					<button type="submit" class="btn btn-same-bg me-md-2 px-4">Envoyer</button>
+				</div>
+
+      </div>
+				{{ form_end(form) }}
+			</div>
+		</div>
+
+	</div>
+</div>
+ #}{% endblock %}

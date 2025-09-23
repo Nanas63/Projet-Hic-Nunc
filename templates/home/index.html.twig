@@ -5,26 +5,46 @@
 {% block body %}
 
 
+	<section class="brand">
+
+		<nav class="navbar navbar-expand-md navbar-light">
+			<a class="navbar-brand" href="#">Christine Brunoir</a>
+			<span class="navbar-text small">- Psychopraticienne -
+			</span>
+		</nav>
+		<div class="container-presentation p-0">
+			<p>Un accompagnement bienveillant, ici et maintenant, pour retrouver votre équilibre intérieur.<br>
+				Depuis 28 ans, je vous aide à libérer les tensions, à renforcer vos ressources naturelles
+				  et à avancer vers une meilleure qualité de vie.</p>
+			<p>Grâce à des méthodes intégratives comme la PBA,
+				  les TCC ou la Détoxination émotionnelle, je vous propose un espace d’écoute, de conscience et de transformation.</p><br>
+			<p>Parce que chaque être mérite d’être accueilli dans sa singularité.</p>
+		</div>
+		<!-- menu ici -->
+
+	</section>
+
 	<div class="banner" style="background-image: url('{{ asset('images/image-home.jpg') }}');">
-		
+
 		<section class="bloc-titres">
 			<h1 class="titre titre-principal">Hic & Nunc</h1>
 			<h2 class="titre titre-label">Ici et maintenant</h2>
 			<h6 class="titre titre-slogan">Pour un nouveau départ</h6>
 		</section>
 	</div>
-	<section class="bandeau"></section>
+	<section class="bandeau">
+	</section>
 
 
 	<section class="bg-light-green py-0">
 		<div class="container-description">
 			<div class="w-100 mx-auto row">
-			
+
 
 				<!-- Colonne gauche : Mon objectif -->
 				<div class="col-md-5 mb-md-0 mb-5 text-center">
 					<h2 class="fw-bold1">Mon objectif</h2>
-					<p>Vous permettre d’atteindre un état de bien-être dans votre vie.</p>
+					<p class="objectif">Vous permettre d’atteindre un état de bien-être dans votre vie.</p>
 				</div>
 
 				<!-- Colonne centrale : image de la main -->
@@ -62,90 +82,87 @@
 	</section>
 
 
-	
-
 	<section class="bandeau">
-  	</section>
+	</section>
 
 
 	<section class="bg-light-green py-0">
 		<div class="container-accompaniement">
-			
-				<div class="praticies mb-5 md-0">
-					<h2 class="fw-bold3">Mes Pratiques</h2>
-				</div>
+
+			<div class="praticies mb-5 md-0">
+				<h2 class="fw-bold3">Mes Pratiques</h2>
+			</div>
+		</div>
 	</section>
+		
+		<div class="container container-card">
+			<div class="row justify-content-center mb-0">
+				{% for practice in practices %}
+					<div class="col-12 col-md-4 mb-4 d-flex justify-content-center">
 
+						<div class="card h-100 shadow-sm" style="width: 100%; max-width: 18rem;">
 
-	<div class="container container-card">
-		<div class="row justify-content-center mb-0">
-			{% for practice in practices %}
-				<div class="col-12 col-sm-6 col-md-4 col-lg-3 mb-4 d-flex justify-content-center">
-
-					<div class="card h-100 shadow-sm" style="width: 100%; max-width: 18rem;">
-
-						{% if practice.image %}
-							<img src="{{ asset('images/' ~ practice.image) }}" class="card-img-top" alt="{{ practice.title }}">
-						{% endif %}
-						<div class="card-body">
-							<h5 class="card-title">{{ practice.title }}</h5>
-							{# <p class="card-text">{{ practice.description|slice(0, 150) ~ '...' }}</p> #}
-						</div>
-						<div class="card-footer text-center">
-							<a href="{{ path('practice_show', {id: practice.id}) }}" class="btn btn-same-bg px-4">En savoir plus</a>
+							{% if practice.image %}
+								<img src="{{ asset('images/' ~ practice.image) }}" class="card-img-top" alt="{{ practice.title }}">
+							{% endif %}
+							<div class="card-body">
+								<h5 class="card-title">{{ practice.title }}</h5>
+								{# <p class="card-text">{{ practice.description|slice(0, 150) ~ '...' }}</p> #}
+							</div>
+							<div class="card-footer text-center">
+								<a href="{{ path('practice_show', {id: practice.id}) }}" class="btn btn-same-bg px-4">En savoir plus</a>
+							</div>
 						</div>
 					</div>
-				</div>
-			{% else %}
-				<div class="col-12 text-center">
-					<p>Aucune pratique thérapeutique enregistrée pour le moment.</p>
-				</div>
-			{% endfor %}
+				{% else %}
+					<div class="col-12 text-center">
+						<p>Aucune pratique thérapeutique enregistrée pour le moment.</p>
+					</div>
+				{% endfor %}
+			</div>
 		</div>
-	</div>
 
 
-	<section class="bandeau">
-  </section>
+		<section class="bandeau"></section>
 
-	<section class="bg-light-green py-0">
-		<div class="container-testimonials">
-			
+		<section class="bg-light-green py-0">
+			<div class="container-testimonials">
+
 				<div class="testimonials mb-5 -md-0">
 					<h2 class="fw-bold3">Ils témoignent...</h2>
 				</div>
-			
-		</div>
-	</section>
+
+			</div>
+		</section>
 
 
-	<div class="container container-card">
-		<div class="row justify-content-center mb-5">
-			{% for testimonial in testimonials %}
-				<div class="col-12 col-sm-6 col-md-4 col-lg-3 d-flex justify-content-center mb-4">
+		<div class="container container-card">
+			<div class="row justify-content-center mb-5">
+				{% for testimonial in testimonials %}
+					<div class="col-12 col-sm-6 col-md-4 col-lg-3 d-flex justify-content-center mb-4">
 
-					<div class="card h-100 shadow-sm" style="width: 100%; max-width: 18rem;">
+						<div class="card h-100 shadow-sm" style="width: 100%; max-width: 18rem;">
 
 
-						<div class="card-body d-flex flex-column">
-							<h5 class="card-title">{{ testimonial.firstname }}</h5>
-							<h6 class="mt-3">
-								{{ testimonial.createdat|date('d/m/Y') }}</h6>
-							<p class="card-content">{{ testimonial.content|slice(0, 200)}}
-								{% if testimonial.content|length > 200 %}...
-								{% endif %}
-							</p>
+							<div class="card-body d-flex flex-column">
+								<h5 class="card-title">{{ testimonial.firstname }}</h5>
+								<h6 class="mt-3">
+									{{ testimonial.createdat|date('d/m/Y') }}</h6>
+								<p class="card-content">{{ testimonial.content|slice(0, 200)}}
+									{% if testimonial.content|length > 200 %}...
+									{% endif %}
+								</p>
 
-						</div>
-						<div class="card-footer text-center">
-							<a href="{{ path('testimonial_index')}}" class="btn btn-same-bg px-4 mt-3">Lire plus</a>
+							</div>
+							<div class="card-footer text-center">
+								<a href="{{ path('testimonial_index')}}" class="btn btn-same-bg px-4 mt-3">Lire plus</a>
 
+							</div>
 						</div>
 					</div>
-				</div>
 
-			{% endfor %}
+				{% endfor %}
+			</div>
 		</div>
-	</div>
-
+	
 {% endblock %}

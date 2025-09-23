@@ -20,59 +20,61 @@
          
 {# </footer #}
 
-<footer class="footer pt-3 pb-3">
+<footer class="footer pt-3 pb-3 py-0 px-0">
 <div class="container-footer mb-0 mt-0">
-      <div class="row text-center">
+      <div class="d-flex justify-content-center align-items-center text-center">
       <!-- À propos -->
             
 
       <!-- Contact -->
             <div class="col-md-4 mb-0 mb-0">
-            <h6 class="tittle-footer">Contact</h6>
+            <h6 class="tittle-footer mb-2">Contact</h6>
         {# <p>Email : <a href="mailto:contact@exemple.com" class="text-dark">contact@exemple.com</a></p> #}
-            <p>Cabinet Nick&Nunc</p>
-            <p>Christine BRUNOIR</p>
-            <p>77 rue de l’hôtel de ville</p>
-            <p>63400 CHÂTEL-GUYON</p>
-            <p>06 12 34 56 78</p>
+            <div class="container-coordonnees">
+            <p class="text-center">Cabinet Nick&Nunc</p>
+            <p class="text-center">Christine BRUNOIR</p>
+            <p class="text-center">77 rue de l’hôtel de ville</p>
+            <p class="text-center">63400 CHÂTEL-GUYON</p>
+            <p class="text-center">06 12 34 56 78</p>
+            </div>
             </div>
 
             <div class="col-md-4 mb-0">
-            <h6 class="tittle-footer">Navigation</h6>
+            <h6 class="tittle-footer mb-2">Navigation</h6>
 
             
-                  <a href="{{ path('app_home') }}" class="text-dark d-block mb-1" alt="link" >Accueil</a>
+                  <a href="{{ path('app_home') }}" class="text-dark d-block" alt="link" >Accueil</a>
            
             
-                  <a href="{{ path('app_a_propos') }}" class="text-dark d-block mb-1" alt="link" >Qui suis-je ?</a>
+                  <a href="{{ path('app_a_propos') }}" class="text-dark d-block" alt="link" >Qui suis-je ?</a>
             
             
-                  <a href="{{ path('practices_index') }}" class="text-dark d-block mb-1" alt="link" >Pratiques</a>
+                  <a href="{{ path('practices_index') }}" class="text-dark d-block" alt="link" >Pratiques</a>
            
             
-                  <a href="{{ path('contact_index') }}" class="text-dark d-block mb-1" alt="link" >Contact</a>
+                  <a href="{{ path('contact_index') }}" class="text-dark d-block" alt="link" >Contact</a>
            
             
-                  <a href="{{ path('reservation_index') }}" class="text-dark d-block mb-1" alt="link" >Prendre RDV</a>
+                  <a href="{{ path('reservation_index') }}" class="text-dark d-block" alt="link" >Prendre RDV</a>
            
             </div>
 
       <!-- Réseaux sociaux -->
-            <div class="col-md-4 mb-4">
-            <h6 class="tittle-footer">Suivez-moi</h6>
-            <a href="#" class="text-dark d-block mb-1">Instagram</a>
+            <div class="col-md-4 mb-5">
+            <h6 class="tittle-footer mb-2">Suivez-moi</h6>
+            <a href="#" class="text-dark d-block">Instagram</a>
             <a href="#" class="text-dark d-block">Facebook</a>
             </div>
 
-            <section class="d-flex justify-content-center mt-0">
+            
+  
+      </div>
+
+      <section class="d-flex justify-content-center mt-0">
                   <img src="{{asset('images/logo.png')}}" alt="Logo" width="130" height="50" class="d-inline-block align-text-top">
             </section>
-
-            
-            
-      </div>
       <div class="mentions col text-center">
-            <p class="mb-0">&copy; 2025 Hic et Nunc. Tous droits réservés.</p>
+            <p class="mb-0 text-center">&copy; 2025 Hic et Nunc. Tous droits réservés.</p>
             <a href="/mentions-legales" class="text-dark">Mentions légales</a> |
             <a href="/confidentialite" class="text-dark">Politique de confidentialité</a>
             </div>

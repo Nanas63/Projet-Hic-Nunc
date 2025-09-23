@@ -44,9 +44,10 @@ body{
     font-family: lora;
     font-weight: bold;
     font-size: 20px;
-    padding-top: 100px;
-    padding-bottom: 100px;
+    padding-top: 50px;
+    padding-bottom: 50px;
 }
+
 
 .container-testimonials2{
     background-color: #b4cfb0;
@@ -83,6 +84,7 @@ body{
 
 .container-contact{
     background-color: #b4cfb0;
+    font-family: lora;
 }
 .container-card{
 
@@ -97,6 +99,10 @@ body{
     display: flex;
     flex-direction:column;
     font-size: 0.7rem;
+}
+
+.container-coordonnees{
+    width: 100%;
 }
 
 .admin{
@@ -268,13 +274,18 @@ body{
 /* p{
     font-size: 1rem;
     color: black;
-    text-align: justify;
+    
     margin: 0;
 } */
 
 p{
     margin: 0px;
     font-family: lora;
+    text-align: justify;
+}
+
+.objectif{
+    font-size: 1rem;
 }
  
 .psy{
@@ -309,7 +320,10 @@ p{
     background-color: #E5E3C9;
     padding: 0;
     margin: 0;
+    min-height: 60px;
     }
+    
+
     
 h1{
     font-family: playfair display;
@@ -366,10 +380,15 @@ h5{
     font-family: lora;
     font-weight: bold;
     font-size: 1rem;
-   
-    
+       
 }
 
+.container-presentation{
+   
+    max-width:100%;
+    margin-inline: auto ;
+    text-align: justify;
+}
 .formations{
     background-color: #E5E3C9;
     border-radius: 10px;
@@ -397,11 +416,11 @@ h5{
 
 
 input, select, textarea, label{
-    max-width: 500px;
+    /* max-width: 500px; */
   display: block;
   margin: 0 auto;
   max-width: 400px; /* facultatif pour limiter la largeur */
-    text-align:inherit;
+  text-align:inherit;
 }
 
 .dropdown-menu{
@@ -460,7 +479,7 @@ a{
     font-size: 0.6rem;
 }
 
-.bandeau-brand{
+.brand{
     background-color:beige;
     font-family: playfair display;
     color: black;
