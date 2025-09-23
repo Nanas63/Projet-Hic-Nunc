@@ -107,7 +107,7 @@
 							{% endif %}
 							<div class="card-body">
 								<h5 class="card-title">{{ practice.title }}</h5>
-								{# <p class="card-text">{{ practice.description|slice(0, 150) ~ '...' }}</p> #}
+								
 							</div>
 							<div class="card-footer text-center">
 								<a href="{{ path('practice_show', {id: practice.id}) }}" class="btn btn-same-bg px-4">En savoir plus</a>
@@ -121,6 +121,43 @@
 				{% endfor %}
 			</div>
 		</div>
+
+
+
+{# <div class="container-card mb-5">
+<div id="carouselPractices" class="carousel slide" data-bs-ride="carousel">
+  <div class="carousel-inner">
+    {% for practice in practices|batch(3) %}
+      <div class="carousel-item {% if loop.first %}active{% endif %}">
+        <div class="d-flex justify-content-center gap-5">
+          {% for item in practice %}
+            <div class="card shadow-sm" style="width: 18rem;">
+              {% if item.image %}
+                <img src="{{ asset('images/' ~ item.image) }}" class="card-img-top" alt="{{ item.title }}">
+              {% endif %}
+              <div class="card-body">
+                <h5 class="card-title">{{ item.title }}</h5>
+              </div>
+              <div class="card-footer text-center">
+                <a href="{{ path('practice_show', {id: item.id}) }}" class="btn btn-same-bg px-4">En savoir plus</a>
+              </div>
+            </div>
+          {% endfor %}
+        </div>
+      </div>
+    {% endfor %}
+  </div>
+
+
+  <!-- Contrôles -->
+  <button class="carousel-control-prev" type="button" data-bs-target="#carouselPractices" data-bs-slide="prev">
+    <span class="carousel-control-prev-icon"></span>
+  </button>
+  <button class="carousel-control-next" type="button" data-bs-target="#carouselPractices" data-bs-slide="next">
+    <span class="carousel-control-next-icon"></span>
+  </button>
+</div>
+</div> #}
 
 
 		<section class="bandeau"></section>
