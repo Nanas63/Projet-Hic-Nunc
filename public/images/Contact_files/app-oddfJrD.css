@@ -15,7 +15,6 @@
 body{
     background-color: #b4cfb0;
     overflow-x: hidden;
-    font-family: lora, sans-serif;
 }
 
 .container-fluid{
@@ -43,12 +42,11 @@ body{
     flex-direction: row;
     background-color: #b4cfb0;
     color: black;
+    font-family: lora;
     font-weight: bold;
     font-size: 20px;
- /*    padding-top: 50px;
-    padding-bottom: 50px; */
-    margin-top: 80px;
-    margin-bottom: 80px;
+    padding-top: 50px;
+    padding-bottom: 50px;
 }
 
 
@@ -66,8 +64,8 @@ body{
 .container-accompaniement, .container-association, .container-practices, .container-testimonials, .container-qui{
     max-width: 700px;
     margin-inline: auto;
-    margin-top: 80px;
-    margin-bottom: 80px;
+    margin-top: 50px;
+    margin-bottom: 50px;
     /* text-align: center; */
     justify-items: center;
     font-family: lora;
@@ -274,6 +272,12 @@ body{
     color: black;
 }
 
+/* p{
+    font-size: 1rem;
+    color: black;
+    
+    margin: 0;
+} */
 
 p{
     margin: 0px;
@@ -425,13 +429,7 @@ input, select, textarea, label{
   margin: 0 auto;
   max-width: 400px; /* facultatif pour limiter la largeur */
   text-align:inherit;
-  
 }
-
-.form-control {
-  border: 1px solid #28a745; /* gris foncé, bon contraste */
-}
-
 
 .dropdown-menu{
     background-color: #b4cfb0;
@@ -478,19 +476,14 @@ input[type="checkbox"].form-check-input {
 
 
 .footer-section h6 {
-  font-size: 0.8rem;
+  font-size: 0.6rem;
   font-weight: 600;
 }
 
 .footer-section p,
 .footer-section li{
-  font-size: 0.7rem;
+  font-size: 0.5rem;
   text-align: center;
-}
-
-
-.mentions{
-    font-size: 0.6rem;
 }
 
 .mentions a{
@@ -512,6 +505,9 @@ a{
     font-family: lora;
 }
 
+.mentions{
+    font-size: 0.6rem;
+}
 
 .brand{
     background-color:beige;
@@ -519,8 +515,7 @@ a{
     color: black;
     justify-content: center;
     padding: 50px;
-    border-radius: 0px 150px 0px 150px;
-    margin-bottom: 50px;
+    border-radius: 0px 150px 0px 150px;;
 }
 
 .navbar-brand{

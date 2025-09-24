@@ -4,28 +4,32 @@
 
 {% block body %}
 
-<div class="container mt-5 mb-5">
+<section class="bandeau">
+</section>
+
+<div class="container">
         <div class="row justify-content-center">
             <div class="col-12 col-sm-10 col-md-8 col-lg-6 col-xl-5">
-    <h3>S'inscrire</h3>
+                <h3>S'inscrire</h3>
 
-    {{ form_errors(registrationForm) }}
+                {{ form_errors(registrationForm) }}
 
-    {{ form_start(registrationForm) }}
-        {{ form_row(registrationForm.email) }}
-        {{ form_row(registrationForm.plainPassword, {
-            label: 'Password'
-        }) }}
+                {{ form_start(registrationForm) }}
+                {{ form_row(registrationForm.email) }}
+                {{ form_row(registrationForm.plainPassword, {
+                    label: 'Password'
+             }) }}
 
 
-        {{form_row(registrationForm.lastname)}}
-        {{form_row(registrationForm.firstname)}}
-        {{ form_row(registrationForm.agreeTerms) }}
+                {{form_row(registrationForm.lastname)}}
+                {{form_row(registrationForm.firstname)}}
+                {{ form_row(registrationForm.agreeTerms) }}
 
-        <button type="submit" class="btn-same-bg">Envoyer</button>
-    {{ form_end(registrationForm) }}
-
-    </div>
+                <button type="submit" class="btn-same-bg2 px-4 py-2 mb-5">Envoyer</button>
+                {{ form_end(registrationForm) }}
+            </div>
+        </div>
+</div>
 {% endblock %}
 
 
